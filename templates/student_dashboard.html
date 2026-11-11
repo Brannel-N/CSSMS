@@ -1,0 +1,41 @@
+{% extends "base.html" %}{% block title %}Student dashboard{% endblock %}{% block crumb %}Student dashboard{% endblock %}{% block content %}
+<div class="welcome-row">
+  <div><span class="eyebrow">YOUR LEARNING SPACE</span><h1>Welcome, {{ current_user.full_name.split()[0] }} <span class="wave">🙋‍♂️</span></h1><p>Your class, teachers and learning activity in one place.</p></div>
+  <div class="date-chip"><i class="bi bi-calendar-week"></i> {{ today.strftime('%A, %d %B %Y') }}</div>
+</div>
+{% if not student %}
+<div class="panel-card"><div class="empty-state"><i class="bi bi-person-exclamation"></i><p>Your account is not linked to a student profile yet. Please contact the school administrator.</p></div></div>
+{% else %}
+<div class="row g-3 stats-grid">
+  <div class="col-6 col-xl-4"><div class="stat-card"><div class="stat-icon blue"><i class="bi bi-building"></i></div><div class="stat-label">Your class</div><div class="stat-value student-class-value">{{ classroom.name if classroom else '—' }}</div><div class="stat-note">{{ classroom.form if classroom else 'Not assigned' }}{% if classroom and classroom.stream %} · {{ classroom.stream }}{% endif %}</div></div></div>
+  <div class="col-6 col-xl-4"><div class="stat-card"><div class="stat-icon purple"><i class="bi bi-person-video3"></i></div><div class="stat-label">Your teachers</div><div class="stat-value">{{ related_teachers|length }}</div><div class="stat-note">Linked to your class assignments</div></div></div>
+  <div class="col-6 col-xl-4"><div class="stat-card"><div class="stat-icon orange"><i class="bi bi-clipboard-check"></i></div><div class="stat-label">Class assignments</div><div class="stat-value">{{ assignment_count }}</div><div class="stat-note">{{ pending_count }} without a submission</div></div></div>
+</div>
+<div class="row g-3 mt-1">
+  <div class="col-xl-7">
+    <div class="panel-card h-100">
+      <div class="panel-heading"><div><h5>Your teachers</h5><p>Teachers who have published assignments for your class</p></div></div>
+      {% if related_teachers %}
+      <div class="student-teacher-list">
+        {% for item in related_teachers %}<div class="student-teacher-row"><span class="person-avatar">{{ item.teacher_name[:1]|upper }}</span><div class="student-teacher-info"><b>{{ item.teacher_name }}</b><small>{{ item.teacher_email }}</small></div><span class="soft-tag">{{ item.assignment_count }} assignment(s)</span></div>{% endfor %}
+      </div>
+      {% else %}
+      <div class="empty-state"><i class="bi bi-person-video3"></i><p>{% if classroom %}No teachers have published class assignments yet.{% else %}You are not assigned to a class yet.{% endif %}</p></div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="col-xl-5">
+    <div class="panel-card h-100">
+      <div class="panel-heading"><div><h5>Learning progress</h5><p>Based only on assignments for your class</p></div></div>
+      <div class="student-progress-row"><span><i class="bi bi-check-circle text-success"></i> Submitted</span><b>{{ submitted_count }}</b></div>
+      <div class="student-progress-row"><span><i class="bi bi-hourglass-split text-warning"></i> To submit</span><b>{{ pending_count }}</b></div>
+      <a href="{{ url_for('assignments') }}" class="btn btn-primary w-100 mt-3">Go to assignments <i class="bi bi-arrow-right ms-1"></i></a>
+    </div>
+  </div>
+</div>
+<div class="panel-card mt-3">
+  <div class="panel-heading"><div><h5>Recent class assignments</h5><p>Latest work published for your class</p></div><a href="{{ url_for('assignments') }}" class="text-link">View all <i class="bi bi-arrow-up-right"></i></a></div>
+  {% if recent_assignments %}<div class="table-responsive"><table class="table align-middle"><thead><tr><th>Assignment</th><th>Teacher</th><th>Due date</th><th>Marks</th></tr></thead><tbody>{% for assignment in recent_assignments %}<tr><td><b>{{ assignment.title }}</b></td><td>{{ assignment.created_by.full_name if assignment.created_by and assignment.created_by.role == 'teacher' else 'School staff' }}</td><td>{{ assignment.due_date.strftime('%d %b %Y') if assignment.due_date else 'Not set' }}</td><td>{{ assignment.max_marks }}</td></tr>{% endfor %}</tbody></table></div>{% else %}<div class="empty-state"><i class="bi bi-clipboard2"></i><p>{% if classroom %}No assignments have been published for your class.{% else %}Join a class to see its assignments here.{% endif %}</p></div>{% endif %}
+</div>
+{% endif %}
+{% endblock %}

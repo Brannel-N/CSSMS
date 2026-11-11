@@ -1,0 +1,10 @@
+.profile-avatar-image{display:block;width:100%;height:100%;object-fit:cover;border-radius:inherit}
+.mini-avatar{overflow:hidden;text-decoration:none}
+.profile-top-avatar{overflow:hidden;padding:0;text-decoration:none}
+.profile-card{max-width:680px;margin-inline:auto;padding:28px}
+.profile-photo-preview{display:flex;justify-content:center;margin:8px 0 18px}
+.profile-photo-large,.profile-photo-placeholder{width:128px;height:128px;border-radius:50%;object-fit:cover}
+.profile-photo-placeholder{display:grid;place-items:center;background:#e8ecff;color:#5266d8;font-size:48px;font-weight:700}
+.profile-account{text-align:center;margin-bottom:24px}
+.profile-account h5{margin-bottom:4px}
+.profile-form{max-width:480px;margin:auto}

@@ -1,0 +1,4 @@
+.computer-crud-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.computer-crud-actions form{margin:0}
+.computer-crud-button{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:38px;padding:7px 12px;font-size:13px;font-weight:600;white-space:nowrap}
+@media(max-width:575.98px){.computer-footer{align-items:flex-start;flex-direction:column;gap:10px}.computer-crud-actions{width:100%}.computer-crud-button{flex:1}}

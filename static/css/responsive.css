@@ -1,0 +1,307 @@
+.main-area,
+.content-wrap {
+  min-width: 0;
+}
+
+.topbar {
+  gap: 12px;
+}
+
+.topbar > div:nth-of-type(1) {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.top-actions {
+  flex: 0 0 auto;
+}
+
+.table-responsive {
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.student-search-toolbar {
+  align-items: center;
+  gap: 10px;
+}
+
+.student-searchbox {
+  flex: 1 1 280px;
+  max-width: 420px;
+}
+
+.student-searchbox i {
+  top: 50%;
+  left: 14px;
+  z-index: 1;
+  font-size: 15px;
+  transform: translateY(-50%);
+}
+
+.student-searchbox input.form-control {
+  height: 46px;
+  padding: 10px 14px 10px 42px;
+  border-radius: 11px;
+  font-size: 14px;
+}
+
+.student-search-submit,
+.student-search-clear {
+  min-height: 44px;
+  padding-inline: 16px;
+  border-radius: 10px;
+}
+
+.student-search-count {
+  white-space: nowrap;
+}
+
+.class-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.class-actions form {
+  margin: 0;
+}
+
+.class-edit-card {
+  max-width: 640px;
+}
+
+.sidebar-close,
+.sidebar-backdrop {
+  display: none;
+}
+
+@media (max-width: 991.98px) {
+  body.sidebar-open {
+    overflow: hidden;
+  }
+
+  .sidebar.show {
+    box-shadow: 12px 0 36px #10172b44;
+  }
+
+  .sidebar-close {
+    position: absolute;
+    top: 24px;
+    right: 16px;
+    z-index: 1;
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border: 1px solid #ffffff24;
+    border-radius: 10px;
+    background: #ffffff10;
+    color: #fff;
+  }
+
+  .sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: block;
+    border: 0;
+    background: rgb(12 18 34 / 52%);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity .2s ease, visibility .2s ease;
+  }
+
+  .sidebar.show + .sidebar-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .topbar,
+  .content-wrap {
+    min-width: 0;
+  }
+
+  .content-wrap > .row {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .topbar {
+    gap: 7px;
+  }
+
+  .topbar > div:nth-of-type(1) span {
+    display: none;
+  }
+
+  .topbar > div:nth-of-type(1) strong {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .top-actions {
+    gap: 7px;
+  }
+
+  .presence-toggle {
+    min-height: 38px;
+  }
+
+  .content-wrap {
+    padding-inline: 14px;
+  }
+
+  .page-heading,
+  .welcome-row {
+    gap: 12px;
+  }
+
+  .page-heading > div,
+  .welcome-row > div {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .page-heading p,
+  .welcome-row p {
+    overflow-wrap: anywhere;
+  }
+
+  .page-heading .btn {
+    max-width: 100%;
+    justify-content: center;
+    white-space: normal;
+  }
+
+  .panel-card {
+    min-width: 0;
+  }
+
+  .panel-heading {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .panel-heading > * {
+    min-width: 0;
+  }
+
+  .toolbar {
+    align-items: stretch;
+  }
+
+  .toolbar > .btn {
+    flex: 1 1 auto;
+  }
+
+  .toolbar > .ms-auto {
+    margin-left: 0 !important;
+    width: 100%;
+  }
+
+  .student-searchbox {
+    flex: 1 0 100%;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .student-search-submit,
+  .student-search-clear {
+    flex: 1 1 calc(50% - 5px);
+  }
+
+  .student-search-count {
+    margin-top: 2px;
+  }
+
+  .modal-dialog {
+    width: auto;
+    max-width: none;
+    margin: .5rem;
+  }
+
+  .modal-content {
+    max-height: calc(100dvh - 1rem);
+  }
+
+  .modal-body {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .modal-footer {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .modal-footer > * {
+    margin: 0;
+  }
+
+  .profile-card {
+    padding: 20px;
+  }
+
+  .profile-form .d-flex {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .profile-form .d-flex .btn {
+    width: 100%;
+  }
+
+  .student-teacher-row {
+    flex-wrap: wrap;
+  }
+
+  .student-teacher-row .soft-tag {
+    margin-left: 43px;
+  }
+}
+
+@media (max-width: 359.98px) {
+  .topbar {
+    padding-inline: 10px;
+  }
+
+  .top-actions {
+    gap: 5px;
+  }
+
+  .presence-toggle {
+    padding-inline: 7px;
+  }
+
+  [data-presence-count] {
+    font-size: 9px;
+  }
+
+  .theme-toggle,
+  .top-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .content-wrap {
+    padding-inline: 10px;
+  }
+
+  .panel-card {
+    padding: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar-backdrop {
+    transition: none;
+  }
+}

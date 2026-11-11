@@ -1,0 +1,6 @@
+.practical-actions{display:flex;align-items:center;gap:8px;flex-wrap:nowrap;max-width:100%;margin-top:12px;overflow-x:auto;padding-bottom:2px}
+.practical-actions form{flex:0 0 auto;margin:0}
+.practical-actions>a,.practical-actions button,.practical-checkin-status{flex:0 0 auto;white-space:nowrap}
+.practical-actions .btn{font-size:11px}
+.practical-checkin-status{padding:7px 0}
+.practical-actions>span:not(.practical-checkin-status){flex:0 1 auto;min-width:0;line-height:1.4}

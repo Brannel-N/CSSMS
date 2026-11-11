@@ -1,0 +1,9 @@
+.student-class-value{overflow:hidden;font-size:clamp(17px,2vw,24px);text-overflow:ellipsis;white-space:nowrap}
+.student-teacher-list{display:grid;gap:10px}
+.student-teacher-row{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid #edf0f5;border-radius:12px}
+.student-teacher-info{display:grid;flex:1;min-width:0;gap:3px}
+.student-teacher-info b{overflow:hidden;color:var(--ink);font-size:12px;text-overflow:ellipsis;white-space:nowrap}
+.student-teacher-info small{overflow:hidden;color:var(--muted);font-size:10px;text-overflow:ellipsis;white-space:nowrap}
+.student-progress-row{display:flex;align-items:center;justify-content:space-between;padding:15px 3px;border-bottom:1px solid #edf0f5;color:var(--muted);font-size:12px}
+.student-progress-row span{display:flex;align-items:center;gap:9px}
+.student-progress-row b{color:var(--ink);font-size:16px}
